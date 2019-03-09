@@ -1,0 +1,14 @@
+// --------------------------------------------
+// Main Global file,
+//  imports all mixins, functions and variables
+//
+// Used in component style files,
+// to have access to all the scss variables,
+// mixins and functions
+// --------------------------------------------
+
+@import 'variables/_variables.scss';
+@import 'functions/_func.scss';
+@import 'mixins/_mix.scss';
+@import 'mixins/_mix-bp.scss';
+

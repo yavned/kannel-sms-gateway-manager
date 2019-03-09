@@ -1,0 +1,24 @@
+// -------------------------------------
+// Retrieve dimension from $dimensions
+// (config/variables/_dimensions.scss)
+//
+// Example:
+//  .item {
+//        padding: dim(base, padding);
+//        margin: dim(item, margin);
+//  }
+//
+// Equates to:
+//  .item {
+//      padding: 0;
+//      margin: 0;
+//   }
+// -------------------------------------
+
+@function dim($dimension-name, $dimension-variant:null) {
+  @if ($dimension-variant != null) {
+    @return map-get(map-get($dimensions, $dimension-name), $dimension-variant);
+  } @else {
+    @return map-get($dimensions, $dimension-name);
+  }
+}

@@ -1,0 +1,39 @@
+// -------------------------------------
+// Breakpoint Mixin
+//
+// Example:
+//  @include bp(phone) { ... }
+//
+// Equals to:
+//  @media (max-width: 767px) { ... }
+// -------------------------------------
+
+@mixin bp($point) {
+  @if $point == phone {
+    @media (max-width: 767px) { @content; }
+  }
+  @else if $point == phone-small {
+    @media (max-width: 479px) { @content; }
+  }
+
+
+  @else if $point == tablet {
+    @media (min-width: 768px) and (max-width: 1024px) { @content; }
+  }
+  @else if $point == tablet-port {
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) { @content; }
+  }
+
+  @else if $point == desktop {
+    @media (min-width: 1025px) { @content; }
+  }
+  @else if $point == to-desktop {
+    @media (max-width: 1024px) { @content; }
+  }
+  @else if $point == desktop-mid {
+    @media (min-width: 1400px) { @content; }
+  }
+  @else if $point == desktop-large {
+    @media (min-width: 1599px) { @content; }
+  }
+}

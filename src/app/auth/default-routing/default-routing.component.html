@@ -1,0 +1,142 @@
+<!-- Button add new country route -->
+<div class="container-fluid">
+  <div class="container-fluid" style="border: 1px solid #ddd; padding-top: 15px; display: flex; justify-content: center;">
+
+    <form [formGroup]="countryRouteForm" (ngSubmit)="add()">
+      <ul class="wrapper">
+
+        <label>Country:
+          <select formControlName="CountryID" [ngModel]="selectedItem">
+            <option *ngFor="let country of countriesWithoutDefaultRoute | async" [value]="country.CountryID">{{country.Nicename}} (+{{country.PhoneCode}})</option>
+          </select>
+        </label>
+
+        <label>&nbsp;</label>
+
+        <label>Connection:
+          <select formControlName="SMSRouteID" [ngModel]="selectedItem">
+            <option *ngFor="let route of routes | async" [value]="route.SMSRouteID">{{route.SmscID}} {{route.ConnectionTypeShortName}}</option>
+          </select>
+        </label>
+
+        <label>&nbsp;</label>
+
+        <label>Rate:
+          <input formControlName="Rate" type="number" min="0" step="0.00001">
+        </label>
+
+        <label>
+          <button class="btn btn-success" [disabled]="!countryRouteForm.valid">
+            <i class="fa fa-floppy-o"></i> Add new default country route</button>
+        </label>
+
+      </ul>
+    </form>
+
+  </div>
+</div>
+
+
+<!--country routes-->
+<div class="container-fluid" style="padding: 10px; background: white">
+  <table class="user-routes">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Connection</th>
+        <th>Rate</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let countryRote of countryRotes | async">
+        <td>{{countryRote.Nicename}} (+{{countryRote.PhoneCode}})</td>
+        <td>{{countryRote.SmscID}}</td>
+        <td>{{countryRote.Rate}}</td>
+        <td>
+          <button type="button" title="Edit route" class="btn btn-primary" (click)="showEditModal(countryRote)">
+            <i class="fa fa-edit"></i>
+          </button>
+          <button type="button" title="Delete route" class="btn btn-danger" (click)="delete(countryRote.CountryRouteID)">
+            <i class="fa fa-trash-o"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal" [ngClass]="{'show': showModal}" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title">Edit coutry default route</h4>
+      </div>
+
+      <div class="modal-body">
+        <!-- Form save country default route -->
+        <div class="container-fluid">
+          <form [formGroup]="editCountryRouteForm" (ngSubmit)="edit()">
+
+            <div class="ui-g ui-fluid">
+
+              <div class="ui-g-12">
+                <div class="ui-g-4">
+                  <label>Country:</label>
+                </div>
+                <div class="ui-g-8">
+                  <select formControlName="CountryID" [ngModel]="selectedItem" style="width:100%">
+                    <option *ngFor="let country of countries | async" [value]="country.CountryID">{{country.Nicename}} (+{{country.PhoneCode}})</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="ui-g-12">
+                <div class="ui-g-4">
+                  <label>Connection:</label>
+                </div>
+                <div class="ui-g-8">
+                  <select formControlName="SMSRouteID" [ngModel]="selectedItem" style="width:100%">
+                    <option *ngFor="let route of routes | async" [value]="route.SMSRouteID">{{route.SmscID}} {{route.ConnectionTypeShortName}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="ui-g-12">
+                <div class="ui-g-4">
+                  <label>Rate:</label>
+                </div>
+                <div class="ui-g-8">
+                  <input formControlName="Rate" type="number" step="0.00001" min="0">
+                </div>
+              </div>
+
+              <div class="ui-g-12">
+                <div class="ui-g-4">
+
+                </div>
+                <div class="ui-g-8" style="text-align: end">
+                  <button class="btn btn-success" [disabled]="!editCountryRouteForm.valid">
+                    <i class="fa fa-floppy-o"></i> Save</button>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="showModal = false">Close</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

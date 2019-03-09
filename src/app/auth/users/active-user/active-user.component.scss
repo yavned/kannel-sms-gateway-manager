@@ -1,0 +1,85 @@
+/************************** user-routes table************************/
+.user-routes {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.user-routes td, .user-routes th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.user-routes tr:nth-child(even){background-color: #f2f2f2;}
+
+.user-routes tr:hover {background-color: #ddd;}
+
+.user-routes th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+// ***************
+// Basic User Info
+// ***************
+.active-user-profile {
+  width: 50%;
+  padding: 10px 0;
+  border-bottom: 0.5px solid rgb(203, 203, 203);
+  span{
+    font-size: 16px;
+    color: #D95D2D;
+  }
+}
+
+.checkBox {
+  width: 25%;
+  margin-top: 50px;
+  input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    float: right;
+    cursor: pointer;
+  }
+}
+
+// ****************
+// Credit/Debit Tab
+// ****************
+.cardsView {
+  padding: 15px;
+  h1 {
+    width: 50%;
+    margin-bottom: 40px;
+    border-bottom: 0.5px solid rgb(203, 203, 203);
+  }
+
+  .btn {
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+
+  .cardsInfo {
+    width: 50%;
+    margin-top: 10px;
+  }
+}
+
+
+
+.color-gold{
+  color: gold;
+}
+
+.color-silver{
+  color: silver
+}
+
+.color-bronze{
+  color: green
+}

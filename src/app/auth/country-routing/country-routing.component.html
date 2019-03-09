@@ -1,0 +1,156 @@
+<div class="container-fluid">
+  <ul class="wrapper">
+    <label>Country:
+      <select [(ngModel)]="selectedCountry" (change)="onSelectChange()">
+        <option *ngFor="let country of countries | async" [ngValue]="country">{{country.Nicename}} (+{{country.PhoneCode}})</option>
+      </select>
+    </label>
+
+    <label>&nbsp;</label>
+
+    <label>Connection:
+      <select [(ngModel)]="selectedRoute" (change)="onSelectChange()">
+        <option *ngFor="let route of routes | async" [ngValue]="route">{{route.SmscID}} {{route.ConnectionTypeShortName}}</option>
+      </select>
+    </label>
+
+    <label style="width: 150px">&nbsp;</label>
+    
+    <!--globaly change rate-->
+    <label>Rate:
+      <input type="number" step="0.00001" min="0" [(ngModel)]="rateBulk">
+    </label>
+
+    <label>
+      <button class="btn btn-success" [disabled]="!rateBulk" (click)="bulkRateUpdate()">
+        <i class="fa fa-floppy-o"></i> Change rate for all users</button>
+    </label>
+
+    <label>Send Email to all users:
+      <input type="checkbox" [checked]="sendEmail" [(ngModel)]="sendEmail">
+    </label>
+  </ul>
+</div>
+
+<br>
+
+
+<!--userRoutes-->
+<div class="container-fluid" style="padding: 10px; background: white">
+  <table class="user-routes">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Country</th>
+        <th>Connection</th>
+        <th>Route quality</th>
+        <th>Rate</th>
+        <th>Delete route</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userRoute of userRoutes | async">
+        <td>{{userRoute.Username}}
+          <span style="color:blue">{{userRoute.FirstName}} {{userRoute.LastName}}</span>
+        </td>
+        <td>{{userRoute.Nicename}} (+{{userRoute.PhoneCode}})</td>
+        <td>{{userRoute.SmscID}}</td>
+        <td>
+          <strong [ngClass]="getConnectionTypeClass(userRoute.ConnectionTypeShortName)">{{userRoute.ConnectionTypeShortName}}</strong>
+        </td>
+        <td>{{userRoute.Rate}}</td>
+        <td>
+          <button type="button" title="Edit route" class="btn btn-primary" (click)="showEditModal(userRoute)">
+            <i class="fa fa-edit"></i>
+          </button>
+          <button type="button" title="Delete route" class="btn btn-danger" (click)="delete(userRoute.SMSRouteUserID)">
+            <i class="fa fa-trash-o"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal add new/edit -->
+<div id="myModal" class="modal" [ngClass]="{'show': showModal}" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title">Edit user route</h4>
+      </div>
+
+      <div class="modal-body">
+        <!-- Form save route -->
+        <div class="container-fluid">
+          <form [formGroup]="editUserRouteForm" (ngSubmit)="edit()">
+            <div class="ui-g ui-fluid">
+
+              <div class="ui-g-12">
+                <div class="ui-g-4">
+                  <label>User:</label>
+                </div>
+                <div class="ui-g-8">
+                  {{editUserRouteForm.controls['Username'].value}}
+                  <span style="color:blue">{{editUserRouteForm.controls['FirstName'].value}} {{editUserRouteForm.controls['LastName'].value}}</span>
+                </div>
+              </div>
+
+              <div class="ui-g-12">
+                <div class="ui-g-4">
+                  <label>Country:</label>
+                </div>
+                <div class="ui-g-8">
+                  <select formControlName="CountryID" [ngModel]="selectedItem" style="width:100%">
+                    <option *ngFor="let country of countries | async" [value]="country.CountryID">{{country.Nicename}} (+{{country.PhoneCode}})</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="ui-g-12">
+                <div class="ui-g-4">
+                  <label>Connection:</label>
+                </div>
+                <div class="ui-g-8">
+                  <select formControlName="SMSRouteID" [ngModel]="selectedItem" style="width:100%">
+                    <option *ngFor="let route of routes | async" [value]="route.SMSRouteID">{{route.SmscID}} {{route.ConnectionTypeShortName}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="ui-g-12">
+                <div class="ui-g-4">
+                  <label>Rate:</label>
+                </div>
+                <div class="ui-g-8">
+                  <input formControlName="Rate" type="number" step="0.00001"  min="0" ngModel style="width:100%">
+                </div>
+              </div>
+
+              <div class="ui-g-12">
+                <div class="ui-g-4">
+
+                </div>
+                <div class="ui-g-8" style="text-align: end">
+                  <button class="btn btn-success" [disabled]="!editUserRouteForm.valid">
+                    <i class="fa fa-floppy-o"></i> Save</button>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="showModal = false">Close</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

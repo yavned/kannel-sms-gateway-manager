@@ -1,0 +1,43 @@
+@import '~assets/scss/config/_global.scss';
+// .clearfix {
+//   background-color:$wrap-bg;
+// }
+
+#wrapper {
+  position: relative;
+
+  &-inner {
+    display: inline-block;
+    height: 100%;
+    min-height: calc(100vh - 6rem); //6rem margin top & 92px footer height
+    padding: 2em;
+    margin-top: 6rem;
+    margin-left: 70px;
+    width: 93%;
+    position: relative;
+    right: 0;
+    z-index: z(ground);
+    width: 88%;
+    margin-left: 235px;
+    background-color:$wrap-bg;
+    transition: all 0.4s;
+
+    &.expanded {
+      width: calc(100% - 240px);
+      margin-left: 240px;
+    }
+
+    
+    @include bp(to-desktop) {
+      margin-left: 70px;
+      width: 83%;
+
+      &.expanded {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+      }
+    }
+
+  }
+}
+

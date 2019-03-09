@@ -1,0 +1,14 @@
+<div class="dashboard container-fluid">
+  <div class="dashboard-title ">
+    <h2>Dashboard</h2>
+  </div>
+
+  <div class="dashboard-cards">
+    <div class="left-panel">
+      <p-chart type="bar" [data]="data"></p-chart>
+    </div>
+    <div class="right-panel">
+      <p-chart type="line" [data]="lineData" (onDataSelect)="selectData($event)"></p-chart>
+    </div>
+  </div>
+</div>

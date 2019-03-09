@@ -1,0 +1,30 @@
+<div class="container-fluid landing-page">
+  <div class="row">
+    <div style="position:relative">
+      <div class="login">
+        <div class="login-logo">
+          <!-- <img src="/assets/img/logo.gif" alt="logo" class="landing-page__logo"> -->
+        </div>
+        <h3 class="login-title">
+          LOGIN TO YOUR ACCOUNT
+        </h3>
+        <form
+          [formGroup]="LoginForm"
+          (ngSubmit)="submitForm(LoginForm)" class="ui-g ui-fluid">
+
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+            <input type="email" pInputText placeholder="Email" formControlName="Email">
+          </div>
+
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+            <input type="password" pInputText placeholder="Password" formControlName="Password">
+          </div>
+
+          <button pButton type="submit" label="Submit"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

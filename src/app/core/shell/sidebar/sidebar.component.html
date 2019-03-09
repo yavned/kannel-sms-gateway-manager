@@ -1,0 +1,72 @@
+<aside id="site-sidebar" [ngClass]="{ isClosed : isClosedMenu() }" >
+  <div class="branding">
+    <div class="branding-logo">
+      <img class="logo__img" src="{{ logoSrc }}" alt="SMS Warriors"/>
+    </div>
+  </div>
+
+  <ul class="sidebar-menu">
+    <li class="site-sidebar__item">
+      <a routerLink="/dashboard" routerLinkActive="activeRoute">
+        <span>
+          Dashboard
+        </span>
+      </a>
+    </li>
+    <li class="site-sidebar__item">
+      <a routerLink="/user-managment" routerLinkActive="activeRoute">
+        <span>
+          User Managment
+        </span>
+      </a>
+    </li>
+    <li class="site-sidebar__item" >
+      <a routerLink="/reports" routerLinkActive="activeRoute">
+        <span>
+          Reports &amp; stats
+        </span>
+      </a>
+    </li>
+    <li class="site-sidebar__item">
+      <a routerLink="/develop-api" routerLinkActive="activeRoute">
+        <span>
+          Developer API
+        </span>
+      </a>
+    </li>
+    <li class="site-sidebar__item">
+      <a routerLink="/routing" routerLinkActive="activeRoute">
+        <span>
+          Routing
+        </span>
+      </a>
+    </li>
+    <li class="site-sidebar__item">
+        <a routerLink="/country-routing" routerLinkActive="activeRoute">
+          <span>
+            Country routing
+          </span>
+        </a>
+      </li>
+
+      <li class="site-sidebar__item">
+          <a routerLink="/default-routing" routerLinkActive="activeRoute">
+            <span>
+              Default routing
+            </span>
+          </a>
+        </li>
+      
+  </ul>
+
+  <ul class="bottom-sidebar">
+    <li class="site-sidebar__item" (click)="logout()">
+      <a routerLink="/dashboard">
+        <span>
+          Logout
+        </span>
+      </a>
+    </li>
+  </ul>
+
+</aside>

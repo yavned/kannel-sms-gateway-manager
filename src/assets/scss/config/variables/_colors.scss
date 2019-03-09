@@ -1,0 +1,125 @@
+// ------------------------------------
+// Color Variables
+// ------------------------------------
+
+$colors: (
+  base: (
+    prim : #464463,
+    sec  : #323142,
+    terc : #F0F0FF,
+    quart: #EB7544,
+    sidebar: #303030
+  ),
+  admin-base: (
+    prim : #1A1A1A,
+    sec  : #2B2E33,
+    terc : #DBDBDB,
+    quart: #FFFFFF
+  ),
+  admin-other: (
+    first: #0090D9,
+    second: #C75757,
+  ),
+  //SMS WARRIORS COLORS https://goo.gl/nsaVDB
+  smsw: (
+    ginger: #E85416,
+    dental : #83C8C0,
+    armor  : #29235C,
+    dark-armor: #323142,
+    darker-armor: #424154,
+    mono: #B8B9B8,
+    main-bg: #edeff8,
+    blu-hover:#dddded,
+    menus: #F0F0FF,
+    dropdown: #ddddea,
+    header:#3c3a58
+  ),
+  brands: (
+    facebook: #3B5998,
+    twitter : #1DA1F2,
+    google  : #DD4B39,
+    linkedin: #0077B5
+  ),
+  fifty-shades: (
+    border        : #B1B1B1,
+    dash-bgd      : #F8F8F8,
+    history-txt   : #656565,
+    offer-txt     : #333,
+    offer-bgd     : #CCC,
+    post-txt      : #333,
+    statistics-txt: #656565,
+    post-subtitle : #9D9D96,
+    footer-bgd    : #5F5F5F,
+    offer-text    : rgba(0, 0, 0, 0.87),
+    a-sidebar-child : #34383F
+  )
+);
+
+// ------------------------------------
+// Material Theme
+// http://mcg.mbitson.com/#!?matpinktheme=%23e11463
+// https://stackoverflow.com/questions/37268999/angularjs-2-material-design-set-color-palette
+// ------------------------------------
+$mat-custom-pink: (
+  50 : #ECEBFF,
+  100 : #E2E1F5,
+  200 : #D0CEEB,
+  300 : #BCBAE0,
+  400 : #B0ADD9,
+  500 : #9C99CE,
+  600 : #464463,
+  700 : #3C3A4F,
+  800 : #323142,
+  900 : #272633,
+  A100 : #F7B79C,
+  A200 : #FF9A70,
+  A400 : #EB7544,
+  A700 : #E85416,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+// -------------------------------------
+// Typography
+// -------------------------------------
+
+//Variables
+$light-font: 340;
+$bold-font: 400;
+$title-header: #3f4873;
+$wrap-bg: #edeff8;
+$gradient-bg: linear-gradient(0.35turn, #323142, #615c96, #1f1d32);
+$big-font: 2rem;
+$bottomLine: 2px solid #3f4873;
+
+
+$hoverShadow:0 3px 2px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+// $cardShadow:0 10px 20px rgba(161, 146, 204, 0.19), 0 6px 6px rgba(164, 151, 209, 0.23) !important;
+// $cardHover: 0 17px 28px rgba(193, 179, 230, 0.10), 0 14px 10px rgba(188, 175, 230, 0.17) !important;
+$cardShadow: -9px 6px 15px -5px rgba(149, 145, 201, 0.5) !important;
+$cardHover:-9px 20px 20px -15px rgba(74, 74, 139, 0.3) !important;
+
+.headings {
+  color: $title-header;
+  background: $wrap-bg;
+  font-weight: $bold-font;
+  font-size: $big-font;
+  margin-bottom: 2rem;
+  text-align: center;
+  // border-bottom: $bottomLine;
+}
+

@@ -1,0 +1,63 @@
+@import '~assets/scss/config/_global.scss';
+
+// -------------------------------------
+// Common Elements
+// -------------------------------------
+
+//--- Card Title
+.card-title {
+    display: block;
+    margin-bottom: 3.5rem;
+
+    font-size: 2.2rem;
+    white-space: nowrap;    
+
+    &--colored {
+        color: color(base, prim);
+    }
+}
+
+//--- Card Subtitle
+.card-subtitle {
+    display: block;
+    margin-bottom: 1rem;
+
+    font-size: 1.4rem;
+}
+
+//--- Page Break Separator
+.page-break {
+  margin: 4rem 0;
+  overflow: hidden;
+
+  text-align: center;
+
+  span {
+    position: relative;
+    
+    color: color(fifty-shades, offer-text);
+    font-size: 2rem;
+
+    &:before,
+    &:after {
+      content: "";
+  
+      width: 10rem;
+      height: 2px;
+  
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+  
+      background-color: color(fifty-shades, offer-bgd);
+    }
+  
+    &:before {
+      left: 4rem;
+    }
+  
+    &:after {
+      right: 4rem;
+    }
+  }
+}

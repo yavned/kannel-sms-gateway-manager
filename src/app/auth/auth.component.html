@@ -1,0 +1,8 @@
+<sms-admin-header></sms-admin-header>
+<div id="wrapper clearfix">
+  <sms-admin-sidebar></sms-admin-sidebar>
+  <div id="wrapper-inner"  [ngClass]="{ expanded : isSidebarExpanded == true}">
+    <!-- Child router outlet -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

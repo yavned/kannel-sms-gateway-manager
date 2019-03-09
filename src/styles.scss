@@ -1,0 +1,10 @@
+@import './assets/scss/config/global/_reset.scss';
+@import './assets/scss/config/global/_base-config.scss';
+@import './assets/scss/config/global/_common-elements.scss';
+@import './assets/scss/config/global/_helpers.scss';
+@import './assets/scss/config/global/_typography.scss';
+
+
+.ui-widget-overlay.ui-dialog-mask {
+  z-index: 0 !important;
+}

@@ -1,0 +1,96 @@
+//generic variables until we settle on font sizes and naming
+$font1: 1.6rem;
+$font2: 2.8rem;
+
+// -------------------------------------
+// HEADER CONTAINER
+// -------------------------------------
+.header {
+  display: flex;
+  // flex-direction: row-reverse;
+  width: 100%;
+  height: 6rem;
+  padding-right: 2.4em;
+  padding-left: 1.8em;
+
+  position: fixed;
+  z-index: z(hill);
+
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: lighten($color: #323142, $amount: 10%);
+  box-shadow: 0 1px 7px rgba(0, 0, 0, .2);
+}
+// -------------------------------------
+// LOGO
+// -------------------------------------
+.logo {
+  cursor: pointer;
+
+  &__img {
+    padding: 1em 0;
+    width: auto;
+    height: 5rem;
+  }
+}
+
+// -------------------------------------
+// STATUS AREA
+// -------------------------------------
+.status-area {
+  // display: flex;
+  font-size: 1.4rem;
+  color: #fff;
+
+  // -------------------------------------
+  // USER
+  // -------------------------------------
+  @at-root .user, .company {
+    position: relative;
+    margin-left: auto;
+    display: inline-flex;
+
+    align-items: center;
+
+    &__icon {
+      margin-right: 0.5rem;
+      font-size: 2.2rem;
+    }
+
+    &__name,
+    &__status {
+      display: block;
+      color: #fff;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &-after {
+        margin-right: 30px;
+
+        &:after {
+          content: '';
+          display: inline-block;
+          height: 40px;
+          width: 2px;
+          background:color(base, terc);
+          position: absolute;
+          top: -10px;
+          right: 15px;
+        }
+      }
+    }
+    &__status {
+      color: color(base,prim);
+
+      font-size: 80%;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

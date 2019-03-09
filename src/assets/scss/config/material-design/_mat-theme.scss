@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+@import './assets/scss/config/variables/_colors.scss';
+
+    
+@include mat-core();
+
+$theme-primary: mat-palette($mat-custom-pink,600); //$mat-pink
+$theme-accent:  mat-palette($mat-custom-pink, A400, A100, A200);
+$theme-warn:    mat-palette($mat-custom-pink,A700);
+
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+
+@include angular-material-theme($theme);
+
+.mat-checkbox-layout {
+    white-space: normal !important;
+}
+  
